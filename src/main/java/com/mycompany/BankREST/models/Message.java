@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.myblog.models;
+package com.mycompany.BankREST.models;
 
 import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;

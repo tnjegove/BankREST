@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.myblog.resources;
+package com.mycompany.BankREST.resources;
 
-import com.mycompany.myblog.models.Message;
-import com.mycompany.myblog.services.MessageService;
+import com.mycompany.BankREST.models.Message;
+import com.mycompany.BankREST.services.MessageService;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;

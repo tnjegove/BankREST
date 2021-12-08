@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.myblog.services;
+package com.mycompany.BankREST.services;
 
-import com.mycompany.myblog.models.Message;
+import com.mycompany.BankREST.models.Message;
 import java.util.ArrayList;
 import java.util.List;
 

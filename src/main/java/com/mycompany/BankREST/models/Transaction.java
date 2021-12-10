@@ -12,18 +12,28 @@ import java.util.Date;
  * @author tadija
  */
 public class Transaction {
+    private int transactionID;
     private double postTransbalance;
     private Date created;
     private String description;
 
-    public double getBalance() {
+    public int getTransactionID() {
+        return transactionID;
+    }
+
+    public void setTransactionID(int transactionID) {
+        this.transactionID = transactionID;
+    }
+
+    public double getPostTransbalance() {
         return postTransbalance;
     }
 
-    public void setBalance(double balance) {
-        this.postTransbalance = balance;
-    }
+    public void setPostTransbalance(double postTransbalance) {
+        this.postTransbalance = postTransbalance;
+    }    
 
+    
     public Date getCreated() {
         return created;
     }

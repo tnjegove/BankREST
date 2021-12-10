@@ -12,6 +12,15 @@ import java.util.ArrayList;
  * @author tadija
  */
 public class Account {
+    private int accountID;
+
+    public int getAccountID() {
+        return accountID;
+    }
+
+    public void setAccountID(int accountID) {
+        this.accountID = accountID;
+    }
     private String sortCode;
     private String accNumber;
     private double currentBalance;

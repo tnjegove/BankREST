@@ -33,5 +33,15 @@ public class CustomerService {
     public Customer getCustomer(int id) {
         return customers.get(id-1);
     }
+
+    public ArrayList<Customer> deleteCustomers() {
+        return customers;
+    }
+
+    public void deleteCustomers(int id) {
+        this.customers.remove(id-1);
+    }
+    
+    
     
 }

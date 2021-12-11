@@ -29,7 +29,11 @@ public class Customer {
     private String password;
     private ArrayList<Account> accounts = new ArrayList<Account>();
 
-    public Customer(String firstName, String lastName, String address, String email, String userName, String password) {
+    public Customer() {
+    }
+    
+    public Customer(int customerID, String firstName, String lastName, String address, String email, String userName, String password) {
+        this.customerID = customerID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;

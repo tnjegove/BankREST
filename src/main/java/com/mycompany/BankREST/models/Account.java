@@ -13,6 +13,10 @@ import java.util.ArrayList;
  */
 public class Account {
     private int accountID;
+    private String sortCode;
+    private String accNumber;
+    private double currentBalance;
+    private ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 
     public int getAccountID() {
         return accountID;
@@ -21,10 +25,7 @@ public class Account {
     public void setAccountID(int accountID) {
         this.accountID = accountID;
     }
-    private String sortCode;
-    private String accNumber;
-    private double currentBalance;
-    private ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+    
 
     public String getSortCode() {
         return sortCode;
@@ -58,7 +59,8 @@ public class Account {
         this.transactions = transactions;
     }
 
-    public Account(String sortCode, String accNumber, double currentBalance) {
+    public Account(int accountID, String sortCode, String accNumber, double currentBalance) {
+        this.accountID = accountID;
         this.sortCode = sortCode;
         this.accNumber = accNumber;
         this.currentBalance = currentBalance;

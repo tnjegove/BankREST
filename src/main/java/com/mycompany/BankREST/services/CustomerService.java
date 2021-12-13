@@ -5,6 +5,7 @@
  */
 package com.mycompany.BankREST.services;
 
+import com.mycompany.BankREST.databases.Database;
 import com.mycompany.BankREST.models.Customer;
 import java.util.ArrayList;
 
@@ -13,18 +14,20 @@ import java.util.ArrayList;
  * @author tadija
  */
 public class CustomerService {
-    private ArrayList<Customer> customers = new ArrayList<Customer>();
-    private boolean init = true;
+    Database d = new Database();
+    private ArrayList<Customer> customers = d.getCustomerDB();
+    //private static boolean init = true;
 
-    public CustomerService() {
+    /*public CustomerService() {
         if (init) {
             Customer c1 = new Customer(1, "Tadija", "Njegovec", "27 Kildonan road", "tnjegove@gmail.com", "tnjegove", "test123");
             Customer c2 = new Customer(2, "Conor", "Corboy", "Lucan", "conor@gmail.com", "conor", "test321");
             customers.add(c1);
             customers.add(c2);
+            System.out.println("test customers added");
             init = false;
         }
-    }
+    }*/
     
     public ArrayList<Customer> getAllCustomers () {
         return customers;
@@ -34,12 +37,17 @@ public class CustomerService {
         return customers.get(id-1);
     }
 
-    public ArrayList<Customer> deleteCustomers() {
+    
+    public ArrayList<Customer> deleteCustomer(int id) {
+        this.customers.remove(id-1);
         return customers;
     }
-
-    public void deleteCustomers(int id) {
-        this.customers.remove(id-1);
+    
+    public Customer addCustomer(Customer tmp) {
+        tmp.setCustomerID(customers.size()+1);
+        customers.add(tmp);
+        System.out.println("new customer added");
+        return tmp;
     }
     
     

@@ -14,13 +14,7 @@ import java.util.ArrayList;
 public class Customer {
     private int customerID;
 
-    public int getCustomerID() {
-        return customerID;
-    }
-
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
+    
     private String firstName;
     private String lastName;
     private String address;
@@ -42,8 +36,8 @@ public class Customer {
         this.password = password;
     }
     
-    public void CreateAccount (String sortCode, String accountNumber) {
-        Account tmp = new Account(sortCode, accountNumber, 0);
+    public void CreateAccount (int id, String sortCode, String accountNumber) {
+        Account tmp = new Account(id, sortCode, accountNumber, 0);
         accounts.add(tmp);    
     }
 
@@ -94,5 +88,18 @@ public class Customer {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
+
+    public ArrayList<Account> getAccounts() {
+        return accounts;
+    }
+    
     
 }

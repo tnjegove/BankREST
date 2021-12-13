@@ -32,5 +32,17 @@ public class CustomerResource {
         return customerService.getCustomer(id);
     }
     
+    @DELETE
+    @Path("/{customerID}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<Customer> deleteCustomerJSON(@PathParam("customerID") int id) {
+        return customerService.deleteCustomer(id);
+    }
     
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Customer addCustomer(Customer tmp) {
+        return customerService.addCustomer(tmp);
+    }
 }

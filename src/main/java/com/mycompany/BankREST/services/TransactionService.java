@@ -37,4 +37,17 @@ public class TransactionService {
         return tmpTrans;
     }
     
+    public Transaction getTransaction(int customerID, int accountID, int transactionID) {
+        ArrayList<Account> tmpAcc = customers.get(customerID).getAccounts();
+        ArrayList<Transaction> tmpTrans = tmpAcc.get(accountID).getTransactions();
+        Transaction tmpTran = null;
+        for (int i=0;i<tmpTrans.size();i++) {
+            if (tmpTrans.get(i).getTransactionID() == transactionID) {
+                tmpTran = tmpTrans.get(transactionID);
+            }
+        }
+        return tmpTran;
+        
+    }
+    
 }

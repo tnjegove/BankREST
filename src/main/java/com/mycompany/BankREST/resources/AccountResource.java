@@ -19,12 +19,19 @@ import javax.ws.rs.core.MediaType;
  *
  * @author tadija
  */
-@Path("/customers/{customerID}/accounts")
+@Path("/accounts")
 public class AccountResource {
     private AccountService accountService = new AccountService();
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<Account> getAccountsJSON(@PathParam("customerID")int id) {
         return accountService.getAllAccounts(id);
+    }
+    
+    @GET
+    @Path("/{accountID}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Account getAccountJSON(@PathParam("customerID")int customerID, @PathParam("accountID")int accountID) {
+        return accountService.getAccountID(customerID, accountID);
     }
 }

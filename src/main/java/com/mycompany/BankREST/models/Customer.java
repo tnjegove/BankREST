@@ -36,10 +36,7 @@ public class Customer {
         this.password = password;
     }
     
-    public void CreateAccount (int id, String sortCode, String accountNumber) {
-        Account tmp = new Account(id, sortCode, accountNumber, 0);
-        accounts.add(tmp);    
-    }
+    
 
     public String getFirstName() {
         return firstName;
@@ -99,6 +96,10 @@ public class Customer {
 
     public ArrayList<Account> getAccounts() {
         return accounts;
+    }
+    
+    public void setAccount(Account account) {
+        this.accounts.add(account);
     }
     
     

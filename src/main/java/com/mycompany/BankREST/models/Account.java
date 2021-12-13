@@ -17,7 +17,12 @@ public class Account {
     private String accNumber;
     private double currentBalance;
     private ArrayList<Transaction> transactions = new ArrayList<Transaction>();
-
+    public Account(int accountID, String sortCode, String accNumber, double currentBalance) {
+        this.accountID = accountID;
+        this.sortCode = sortCode;
+        this.accNumber = accNumber;
+        this.currentBalance = currentBalance;
+    }
     public int getAccountID() {
         return accountID;
     }
@@ -58,12 +63,10 @@ public class Account {
     public void setTransactions(ArrayList<Transaction> transactions) {
         this.transactions = transactions;
     }
-
-    public Account(int accountID, String sortCode, String accNumber, double currentBalance) {
-        this.accountID = accountID;
-        this.sortCode = sortCode;
-        this.accNumber = accNumber;
-        this.currentBalance = currentBalance;
+    
+    public void setTransaction(Transaction transaction) {
+        this.transactions.add(transaction);
     }
+    
     
 }

@@ -31,5 +31,16 @@ public class AccountService {
         return tmp;
     }
     
+    public Account getAccountID(int customerID, int accountID) {
+        ArrayList<Account> tmpAccs = customers.get(customerID).getAccounts();
+        Account tmpAcc = null;
+        for (int i=0;i<tmpAccs.size();i++) {
+            if (tmpAccs.get(i).getAccountID()==accountID) {
+                tmpAcc = tmpAccs.get(i);
+            }
+        }
+        return tmpAcc;
+    }
+    
     
 }

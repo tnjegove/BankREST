@@ -32,7 +32,7 @@ public class TransactionResource {
     
     @GET
     @Path("/{transactionID}")
-    public ArrayList<Transaction> getTransactionID(@PathParam("customerID")int customerID, @PathParam("accountID")int accountID) {
-        return transactionService.getAllTransactions(customerID, accountID);
+    public Transaction getTransactionID(@PathParam("customerID")int customerID, @PathParam("accountID")int accountID, @PathParam("transactionID")int transactionID) {
+        return transactionService.getTransaction(customerID, accountID, transactionID);
     }
 }

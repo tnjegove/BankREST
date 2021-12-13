@@ -17,6 +17,14 @@ public class Transaction {
     private Date created;
     private String description;
 
+    public Transaction(int transactionID, double postTransbalance, Date created, String description) {
+        this.transactionID = transactionID;
+        this.postTransbalance = postTransbalance;
+        this.created = created;
+        this.description = description;
+    }
+    
+    
     public int getTransactionID() {
         return transactionID;
     }

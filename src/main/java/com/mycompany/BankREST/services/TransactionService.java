@@ -22,10 +22,18 @@ public class TransactionService {
     }
     
     public ArrayList<Transaction> getAllTransactions (int customerID, int accountID) {
-        ArrayList<Transaction> tmpTrans;
+        ArrayList<Transaction> tmpTrans = null;
         ArrayList<Account> tmpAccounts;
         tmpAccounts = (ArrayList<Account>)customers.get(customerID).getAccounts();
         //find an account with id accountID in arraylist of accounts
+        
+        for (int i=0; i<tmpAccounts.size();i++) {
+            if (tmpAccounts.get(i).getAccountID()==accountID) {
+                tmpTrans = tmpAccounts.get(i).getTransactions();
+                break;
+            }
+            
+        }
         return tmpTrans;
     }
     

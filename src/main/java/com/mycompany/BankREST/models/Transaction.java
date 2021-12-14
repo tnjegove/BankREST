@@ -16,12 +16,14 @@ public class Transaction {
     private double postTransbalance;
     private Date created;
     private String description;
+    private boolean withdrawal;
 
-    public Transaction(int transactionID, double postTransbalance, Date created, String description) {
+    public Transaction(int transactionID, double postTransbalance, Date created, String description, boolean withdrawal) {
         this.transactionID = transactionID;
         this.postTransbalance = postTransbalance;
         this.created = created;
         this.description = description;
+        this.withdrawal = withdrawal;
     }
 
     public Transaction() {
@@ -61,6 +63,14 @@ public class Transaction {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isWithdrawal() {
+        return withdrawal;
+    }
+
+    public void setWithdrawal(boolean withdrawal) {
+        this.withdrawal = withdrawal;
     }
     
     

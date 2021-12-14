@@ -11,6 +11,7 @@ import com.mycompany.BankREST.services.AccountService;
 import java.util.ArrayList;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -39,5 +40,12 @@ public class AccountResource {
     public Account getAccountJSON(@PathParam("customerID")int customerID, @PathParam("accountID")int accountID) {
         System.out.println("/accounts param customerID is "+customerID+" and accountID is "+accountID);
         return accountService.getAccountID(customerID, accountID);
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<Account> setAccount(@PathParam("customerID")int customerID, Account account) {
+        return accountService.setAccount(customerID, account);
     }
 }

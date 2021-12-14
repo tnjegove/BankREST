@@ -37,4 +37,14 @@ public class TransactionService {
         
     }
     
+    public ArrayList<Transaction> setTransaction(int customerID, int accountID, Transaction transaction) {
+        ArrayList<Account> tmpAcc = customers.get(customerID-1).getAccounts(); // get list of accounts for customerID
+        ArrayList<Transaction> tmpTrans = tmpAcc.get(accountID-1).getTransactions(); // get list of transactions for accountID
+        tmpTrans.add(transaction);//add new transaction to list of transactions 
+        tmpAcc.get(accountID-1).setTransactions(tmpTrans);//replace existing list of transactions with new updated list of transactions
+        customers.get(customerID-1).setAccounts(tmpAcc);//update customers
+        return tmpTrans;
+    
+    }
+    
 }

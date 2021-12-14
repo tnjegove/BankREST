@@ -101,6 +101,10 @@ public class Customer {
     public void setAccount(Account account) {
         this.accounts.add(account);
     }
+
+    public void setAccounts(ArrayList<Account> accounts) {
+        this.accounts = accounts;
+    }
     
     
 }

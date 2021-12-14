@@ -29,16 +29,16 @@ public class Database {
             
             System.out.println("test customers added");
             
-            Account a1 = new Account (1, "sort001", "41343125623", 200);
+            Account a1 = new Account (1, "sort001", "41343125623", 0);
             Account a2 = new Account (2, "sort002", "1413125623", 0);
-            Account a3 = new Account (3, "sort003", "38569035623", 50);
-            Account a4 = new Account (4, "sort004", "123563623", 300);
+            Account a3 = new Account (3, "sort003", "38569035623", 0);
+            Account a4 = new Account (4, "sort004", "123563623", 0);
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
             Date date = new Date();  
-            Transaction t1 = new Transaction(1, 20, date, "transaction description");
-            Transaction t2 = new Transaction(2, 30, date, "transaction description 1");
-            Transaction t3 = new Transaction(3, 40, date, "transaction description 2");
-            Transaction t4 = new Transaction(4, 10, date, "transaction description 3");
+            Transaction t1 = new Transaction(1, 20, date, "transaction description", false);
+            Transaction t2 = new Transaction(2, 30, date, "transaction description 1", false);
+            Transaction t3 = new Transaction(3, 40, date, "transaction description 2", false);
+            Transaction t4 = new Transaction(4, 10, date, "transaction description 3", false);
             a1.setTransaction(t1);
             a2.setTransaction(t2);
             a3.setTransaction(t3);

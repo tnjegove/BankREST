@@ -37,5 +37,12 @@ public class AccountService {
         return tmpAcc;
     }
     
+    public ArrayList<Account> setAccount(int customerID, Account account) {
+        ArrayList<Account> tmpAccs = customers.get(customerID-1).getAccounts();
+        tmpAccs.add(account); // add new account to arraylist
+        customers.get(customerID-1).setAccounts(tmpAccs);
+        return tmpAccs;
+    }
+    
     
 }

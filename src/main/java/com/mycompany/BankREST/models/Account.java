@@ -23,6 +23,10 @@ public class Account {
         this.accNumber = accNumber;
         this.currentBalance = currentBalance;
     }
+
+    public Account() {
+    }
+    
     public int getAccountID() {
         return accountID;
     }

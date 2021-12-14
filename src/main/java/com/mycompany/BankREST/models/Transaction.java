@@ -23,6 +23,11 @@ public class Transaction {
         this.created = created;
         this.description = description;
     }
+
+    public Transaction() {
+    }
+    
+    
     
     
     public int getTransactionID() {

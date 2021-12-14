@@ -21,31 +21,18 @@ public class TransactionService {
     public TransactionService() {
     }
     
-    public ArrayList<Transaction> getAllTransactions (int customerID, int accountID) {
-        ArrayList<Transaction> tmpTrans = null;
+    public ArrayList<Transaction> getAllTransactions (int customerID, int accountID) {        
         ArrayList<Account> tmpAccounts;
-        tmpAccounts = (ArrayList<Account>)customers.get(customerID).getAccounts();
+        tmpAccounts = (ArrayList<Account>)customers.get(customerID-1).getAccounts();
         //find an account with id accountID in arraylist of accounts
-        
-        for (int i=0; i<tmpAccounts.size();i++) {
-            if (tmpAccounts.get(i).getAccountID()==accountID) {
-                tmpTrans = tmpAccounts.get(i).getTransactions();
-                break;
-            }
-            
-        }
-        return tmpTrans;
+        Account tmpAcc = tmpAccounts.get(accountID-1);
+        return tmpAcc.getTransactions();
     }
     
     public Transaction getTransaction(int customerID, int accountID, int transactionID) {
-        ArrayList<Account> tmpAcc = customers.get(customerID).getAccounts();
-        ArrayList<Transaction> tmpTrans = tmpAcc.get(accountID).getTransactions();
-        Transaction tmpTran = null;
-        for (int i=0;i<tmpTrans.size();i++) {
-            if (tmpTrans.get(i).getTransactionID() == transactionID) {
-                tmpTran = tmpTrans.get(transactionID);
-            }
-        }
+        ArrayList<Account> tmpAcc = customers.get(customerID-1).getAccounts();
+        ArrayList<Transaction> tmpTrans = tmpAcc.get(accountID-1).getTransactions();
+        Transaction tmpTran = tmpTrans.get(transactionID-1);        
         return tmpTran;
         
     }

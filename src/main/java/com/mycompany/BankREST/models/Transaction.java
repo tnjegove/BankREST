@@ -14,13 +14,15 @@ import java.util.Date;
 public class Transaction {
     private int transactionID;
     private double postTransbalance;
+    private double amount;
     private Date created;
     private String description;
     private boolean withdrawal;
 
-    public Transaction(int transactionID, double postTransbalance, Date created, String description, boolean withdrawal) {
+    public Transaction(int transactionID, double postTransbalance, double amount, Date created, String description, boolean withdrawal) {
         this.transactionID = transactionID;
         this.postTransbalance = postTransbalance;
+        this.amount = amount;
         this.created = created;
         this.description = description;
         this.withdrawal = withdrawal;
@@ -71,6 +73,14 @@ public class Transaction {
 
     public void setWithdrawal(boolean withdrawal) {
         this.withdrawal = withdrawal;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
     
     

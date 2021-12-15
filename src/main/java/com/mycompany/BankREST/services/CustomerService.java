@@ -6,6 +6,7 @@
 package com.mycompany.BankREST.services;
 
 import com.mycompany.BankREST.databases.Database;
+import com.mycompany.BankREST.models.Account;
 import com.mycompany.BankREST.models.Customer;
 import java.util.ArrayList;
 
@@ -34,18 +35,31 @@ public class CustomerService {
     }
     
     public Customer getCustomer(int id) {
-        return customers.get(id-1);
+        Customer tmpCustomer = null;
+        try {
+            tmpCustomer = customers.get(id-1);
+        } catch (IndexOutOfBoundsException e) {
+            tmpCustomer = null;
+            System.out.println("Customer array out of bounds.");
+        }
+        return tmpCustomer;
     }
 
     
     public ArrayList<Customer> deleteCustomer(int id) {
-        this.customers.remove(id-1);
+        try {
+            customers.remove(id-1);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Customer array out of bounds.");
+        }
         return customers;
     }
     
     public Customer addCustomer(Customer tmp) {
         tmp.setCustomerID(customers.size()+1);
-        customers.add(tmp);
+        ArrayList<Account> tmpAccs = null;
+        tmp.setAccounts(tmpAccs);
+        customers.add(tmp);   
         System.out.println("new customer added");
         return tmp;
     }

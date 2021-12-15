@@ -10,6 +10,7 @@ import com.mycompany.BankREST.models.Customer;
 import com.mycompany.BankREST.services.AccountService;
 import java.util.ArrayList;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -47,5 +48,11 @@ public class AccountResource {
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<Account> setAccount(@PathParam("customerID")int customerID, Account account) {
         return accountService.setAccount(customerID, account);
+    }
+    
+    @DELETE    
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<Account> deleteAccount(@PathParam("customerID")int customerID, @QueryParam("accountID")int accountID) {
+        return accountService.deleteAccount(customerID, accountID);
     }
 }

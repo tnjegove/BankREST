@@ -57,7 +57,7 @@ public class TransactionService {
         try {
             tmpTrans = customers.get(customerID-1).getAccounts().get(accountID-1).getTransactions(); // get list of transactions for accountID
             transaction.setTransactionID(tmpTrans.size()+1);        
-            currentBalance = customers.get(customerID).getAccounts().get(accountID-1).getCurrentBalance();
+            currentBalance = customers.get(customerID-1).getAccounts().get(accountID-1).getCurrentBalance();
             transactionAmount = transaction.getAmount();
             if (transaction.isWithdrawal()) {
                 if (currentBalance-transactionAmount<0) {
@@ -66,14 +66,17 @@ public class TransactionService {
                 else {
                     customers.get(customerID-1).getAccounts().get(accountID-1).setCurrentBalance(currentBalance-transactionAmount);
                     transaction.setPostTransbalance(currentBalance-transactionAmount);
+                    tmpTrans.add(transaction);//add new transaction to list of transactions 
+                    customers.get(customerID-1).getAccounts().get(accountID-1).setTransactions(tmpTrans);//replace existing list of transactions with new updated list of transactions
                 }
             }
             else {
                 customers.get(customerID-1).getAccounts().get(accountID-1).setCurrentBalance(currentBalance+transactionAmount);
-                transaction.setPostTransbalance(currentBalance-transactionAmount);
+                transaction.setPostTransbalance(currentBalance+transactionAmount);
+                tmpTrans.add(transaction);//add new transaction to list of transactions 
+                customers.get(customerID-1).getAccounts().get(accountID-1).setTransactions(tmpTrans);//replace existing list of transactions with new updated list of transactions
             }
-            tmpTrans.add(transaction);//add new transaction to list of transactions 
-            customers.get(customerID-1).getAccounts().get(accountID-1).setTransactions(tmpTrans);//replace existing list of transactions with new updated list of transactions
+            
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Index out of bounds.");
         }

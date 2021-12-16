@@ -72,5 +72,15 @@ public class AccountService {
         return tmpAccs;
     }
     
+    public double getBalance(int customerID, int accountID) {
+        double tmpBalance = 0;
+        try {
+            tmpBalance = customers.get(customerID).getAccounts().get(accountID).getCurrentBalance();
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Array out of bounds");
+        }
+        return tmpBalance;
+    }
+    
     
 }

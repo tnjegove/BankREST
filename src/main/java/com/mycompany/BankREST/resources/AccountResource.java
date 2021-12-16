@@ -55,4 +55,11 @@ public class AccountResource {
     public ArrayList<Account> deleteAccount(@PathParam("customerID")int customerID, @QueryParam("accountID")int accountID) {
         return accountService.deleteAccount(customerID, accountID);
     }
+    
+    @GET
+    @Path("/{accountID}/balance")
+    @Produces(MediaType.TEXT_PLAIN)
+    public double getBalance(@PathParam("customerID")int customerID, @PathParam("accountID")int accountID) {
+        return accountService.getBalance(customerID, accountID);
+    }
 }

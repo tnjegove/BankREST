@@ -46,9 +46,10 @@ public class TransactionResource {
     }
     
     @POST
+    @Path("/sendfunds")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<Transaction> setTransaction(@PathParam("senderID")int senderID, @PathParam("senderaccountID")int senderaccountID, @QueryParam("receiverID")int receiverID, @QueryParam("receiveraccountID")int receiveraccountID, Transaction transaction ) {
+    public ArrayList<Transaction> setTransactionJSON(@PathParam("customerID")int senderID, @PathParam("accountID")int senderaccountID, @QueryParam("receiverID")int receiverID, @QueryParam("receiveraccountID")int receiveraccountID, Transaction transaction ) {
         return transactionService.setTransaction(senderID, senderaccountID, receiverID, receiveraccountID, transaction);
     }
 }

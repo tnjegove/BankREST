@@ -91,16 +91,22 @@ public class TransactionService {
         Transaction receiverTransaction = senderTransaction;
         receiverTransaction.setWithdrawal(false);
         senderTransaction.setWithdrawal(true);
-        double currentBalance=0, receivercurrentBalance = 0, transactionAmount = 0;
+        double currentBalance=0, receivercurrentBalance = 0, transactionAmount;
+        transactionAmount = senderTransaction.getAmount();
         ArrayList<Transaction> senderTrans = null;
         ArrayList<Transaction> receiverTrans = null;
         
+        
         try {
             senderTrans = customers.get(senderID-1).getAccounts().get(senderaccountID-1).getTransactions(); // get list of transactions for senderID
+            
+            
             senderTransaction.setTransactionID(senderTrans.size()+1);        
             currentBalance = customers.get(senderID-1).getAccounts().get(senderaccountID-1).getCurrentBalance();
-            receivercurrentBalance = customers.get(receiverID).getAccounts().get(receiveraccountID).getCurrentBalance();
-            transactionAmount = senderTransaction.getAmount();
+            receivercurrentBalance = customers.get(receiverID-1).getAccounts().get(receiveraccountID-1).getCurrentBalance();
+            System.out.println("senderID: " +senderID+" senderaccountID: "+senderaccountID+" current balance sender: "+currentBalance + "receiver current balance: "+receivercurrentBalance);
+            
+            
             //sender data
             
             //receiver data
@@ -111,7 +117,7 @@ public class TransactionService {
                 System.out.println("Not enough funds");
             }
             else {
-                customers.get(senderID-1).getAccounts().get(senderaccountID).setCurrentBalance(currentBalance-transactionAmount);
+                customers.get(senderID-1).getAccounts().get(senderaccountID-1).setCurrentBalance(currentBalance-transactionAmount);
                 senderTransaction.setPostTransbalance(currentBalance-transactionAmount);
                 senderTrans.add(senderTransaction);
                 customers.get(senderID-1).getAccounts().get(senderaccountID-1).setTransactions(senderTrans);//replace existing list of transactions with new updated list of transactions

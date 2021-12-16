@@ -51,6 +51,7 @@ public class AccountService {
         ArrayList<Account> tmpAccs = null;
         try {
             tmpAccs = customers.get(customerID-1).getAccounts();
+            System.out.println("int "+tmpAccs.size());
             account.setAccountID(tmpAccs.size()+1);
             tmpAccs.add(account); // add new account to arraylist
             customers.get(customerID-1).setAccounts(tmpAccs);
@@ -75,7 +76,7 @@ public class AccountService {
     public double getBalance(int customerID, int accountID) {
         double tmpBalance = 0;
         try {
-            tmpBalance = customers.get(customerID).getAccounts().get(accountID).getCurrentBalance();
+            tmpBalance = customers.get(customerID-1).getAccounts().get(accountID-1).getCurrentBalance();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Array out of bounds");
         }

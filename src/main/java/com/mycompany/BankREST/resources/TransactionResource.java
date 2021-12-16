@@ -44,4 +44,11 @@ public class TransactionResource {
     public ArrayList<Transaction> setTransaction(@PathParam("customerID")int customerID, @PathParam("accountID")int accountID, Transaction transaction) {
         return transactionService.setTransaction(customerID, accountID, transaction);
     }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<Transaction> setTransaction(@PathParam("senderID")int senderID, @PathParam("senderaccountID")int senderaccountID, @QueryParam("receiverID")int receiverID, @QueryParam("receiveraccountID")int receiveraccountID, Transaction transaction ) {
+        return transactionService.setTransaction(senderID, senderaccountID, receiverID, receiveraccountID, transaction);
+    }
 }

@@ -88,11 +88,16 @@ public class TransactionService {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
         Date date = new Date(); 
         senderTransaction.setCreated(date);
-        Transaction receiverTransaction = senderTransaction;
+        //Transaction receiverTransaction = senderTransaction;
+        Transaction receiverTransaction = new Transaction();
+        
         receiverTransaction.setWithdrawal(false);
         senderTransaction.setWithdrawal(true);
         double currentBalance=0, receivercurrentBalance = 0, transactionAmount;
         transactionAmount = senderTransaction.getAmount();
+        receiverTransaction.setAmount(transactionAmount);
+        receiverTransaction.setCreated(senderTransaction.getCreated());
+        receiverTransaction.setDescription(senderTransaction.getDescription());
         ArrayList<Transaction> senderTrans = null;
         ArrayList<Transaction> receiverTrans = null;
         

@@ -57,7 +57,7 @@ public class CustomerService {
     
     public Customer addCustomer(Customer tmp) {
         tmp.setCustomerID(customers.size()+1);
-        ArrayList<Account> tmpAccs = null;
+        ArrayList<Account> tmpAccs = new ArrayList<Account>();
         tmp.setAccounts(tmpAccs);
         customers.add(tmp);   
         System.out.println("new customer added");
